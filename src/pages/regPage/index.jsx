@@ -28,18 +28,16 @@ export const RegistrationPage = () => {
         fetchUnits();
     }, []);
 
-    // Обробка зміни полів форми
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prev) => ({ ...prev, [name]: value }));
     };
 
-    // Обробка форми
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         try {
-            const response = await fetch("http://localhost:4000/api/users/", {
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/api/users/`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

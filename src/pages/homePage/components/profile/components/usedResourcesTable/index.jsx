@@ -15,7 +15,7 @@ export const UsedResourcesTable = () => {
     const user = JSON.parse(localStorage.getItem("authUser"));
     setUserId(user?.id);
 
-    fetch("http://localhost:4000/api/used-resources")
+    fetch(`${process.env.REACT_APP_API_URL}/api/used-resources`)
       .then((response) => response.json())
       .then((data) => {
         const filteredResources = data.filter((resource) => resource.userId === user?.id);
@@ -66,7 +66,7 @@ export const UsedResourcesTable = () => {
 
     setUsedResources(updatedResources);
 
-    fetch(`http://localhost:4000/api/used-resources/${selectedResourceId}`, {
+    fetch(`${process.env.REACT_APP_API_URL}/api/used-resources/${selectedResourceId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

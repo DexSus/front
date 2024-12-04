@@ -65,7 +65,7 @@ export const UseResources = () => {
 
     setResources(updatedResources);
 
-    fetch(`http://localhost:4000/api/resources/${selectedResourceId}`, {
+    fetch(`${process.env.REACT_APP_API_URL}/api/resources/${selectedResourceId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -80,7 +80,7 @@ export const UseResources = () => {
         message.success("Ресурс успішно використано!");
         const user = JSON.parse(localStorage.getItem("authUser"));
 
-        fetch("http://localhost:4000/api/used-resources", {
+        fetch(`${process.env.REACT_APP_API_URL}/api/used-resources`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

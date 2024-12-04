@@ -44,7 +44,7 @@ export const Profile = () => {
 
     const checkAvailability = async (field, value) => {
         try {
-            const response = await fetch(`http://localhost:4000/api/users/check`, {
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/api/users/check`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -84,7 +84,7 @@ export const Profile = () => {
             }
 
             try {
-                const response = await fetch(`http://localhost:4000/api/users/${user.id}`, {
+                const response = await fetch(`${process.env.REACT_APP_API_URL}/api/users/${user.id}`, {
                     method: "PUT",
                     headers: {
                         "Content-Type": "application/json",

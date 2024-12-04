@@ -18,7 +18,7 @@ export const ViewResources = () => {
     const user = JSON.parse(localStorage.getItem('authUser')); 
     setAuthUser(user);
 
-    fetch('http://localhost:4000/api/used-resources/')
+    fetch(`${process.env.REACT_APP_API_URL}/api/used-resources/`)
       .then((response) => response.json())
       .then((data) => {
         setUsedResources(data);
@@ -27,7 +27,7 @@ export const ViewResources = () => {
         console.error('Помилка при завантаженні даних:', error);
       });
 
-    fetch('http://localhost:4000/api/units/')
+    fetch(`${process.env.REACT_APP_API_URL}/api/units/`)
       .then((response) => response.json())
       .then((data) => {
         setUnits(data);
@@ -38,7 +38,7 @@ export const ViewResources = () => {
         setLoading(false);
       });
 
-    fetch('http://localhost:4000/api/users/')
+    fetch(`${process.env.REACT_APP_API_URL}/api/users/`)
       .then((response) => response.json())
       .then((data) => {
         setUsers(data);

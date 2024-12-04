@@ -11,7 +11,7 @@ export const ResourceList = () => {
     const user = JSON.parse(localStorage.getItem("authUser"));
     setUserUnitId(user?.unitId);
 
-    fetch("http://localhost:4000/api/resources")
+    fetch(`${process.env.REACT_APP_API_URL}/api/resources`)
       .then((response) => response.json())
       .then((data) => {
         const filteredResources = data.filter(

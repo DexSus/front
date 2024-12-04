@@ -12,7 +12,7 @@ export const RegisterResources = () => {
     const user = JSON.parse(localStorage.getItem('authUser'));
     setAuthUser(user);
 
-    fetch('http://localhost:4000/api/units/')
+    fetch(`${process.env.REACT_APP_API_URL}/api/units/`)
       .then((response) => response.json())
       .then((data) => {
         setUnits(data);
@@ -30,7 +30,7 @@ export const RegisterResources = () => {
       unit: authUser ? authUser.unitId : null,  
     };
 
-    fetch('http://localhost:4000/api/resources', {
+    fetch(`${process.env.REACT_APP_API_URL}/api/resources`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
