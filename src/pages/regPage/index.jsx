@@ -14,7 +14,7 @@ export const RegistrationPage = () => {
     useEffect(() => {
         const fetchUnits = async () => {
             try {
-                const response = await fetch("http://localhost:4000/api/units/");
+                const response = await fetch(`${process.env.REACT_APP_API_URL}/api/units/`);
                 if (response.ok) {
                     const data = await response.json();
                     setUnits(data);
